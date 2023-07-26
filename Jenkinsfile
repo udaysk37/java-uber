@@ -1,7 +1,9 @@
 pipeline{
     
     agent any 
-    
+             environment {
+           PATH="/opt/maven/bin/:$PATH"
+   }    
     stages {
         
         stage('Git Checkout'){
@@ -58,13 +60,12 @@ pipeline{
                     
                 }
             }
-            stage('Quality Gate Status'){
+            stage('Docker image'){
                 
                 steps{
                     
                     script{
                         
-                        waitForQualityGate abortPipeline: false, credentialsId: 'sonar-api'
                     }
                 }
             }
