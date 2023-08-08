@@ -53,7 +53,7 @@ pipeline{
                 steps{
                     
                     script {
-                         sh 'sudo docker build -t udayshankar1234/javapp:$BUILD_NUMBER .'
+                         sh 'docker image build -t udayshankar1234/javapp:$BUILD_NUMBER .'
                     }
                 }
             }
