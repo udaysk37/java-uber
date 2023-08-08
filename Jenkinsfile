@@ -47,7 +47,9 @@ pipeline{
             }
         }
             stage('Docker image'){
-                
+                environment {     
+                    DOCKERHUB_CREDENTIALS= credentials('DOCKER')     
+                } 
                 steps{
                     
                     script {
